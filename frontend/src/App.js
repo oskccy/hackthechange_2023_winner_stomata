@@ -13,7 +13,7 @@ function App() {
     <>
       <RecommendedProductCard
         title={"Product Title"}
-        metrics={[{"value": 2.1, "name": "carbon", "points": ["yo", "yo", "yo"]}, {"value": 2.1, "name": "carbon", "points": ["yo", "yo", "yo"]}]}
+        metrics={[{"value": 4, "name": "carbon-1-metric", "points": ["yo", "yo", "yo"]}, {"value": 5, "name": "carbon-2 metric", "points": ["yo", "yo", "yo"]}, {"value": 8.9, "name": "other-metric", "points": ["yo", "yo", "yo"]}]}
         imgUrl={turtle}
       />
 

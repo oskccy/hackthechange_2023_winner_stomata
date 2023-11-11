@@ -4,7 +4,13 @@ import {
   CardTextWrapper,
   CardTextTitle,
   CardTextBody,
+  MetricItem,
+  CircleContainer,
+  DataFlexbox,
+  MetricPointsContainer,
 } from "./CardStyles";
+
+import { CircleWithNumber } from "../CircleWithNumber/CricleWithNumber";
 
 export const RecommendedProductCard = ({ title, metrics, imgUrl }) => {
   return (
@@ -14,20 +20,21 @@ export const RecommendedProductCard = ({ title, metrics, imgUrl }) => {
         <CardTextTitle>{title}</CardTextTitle>
         <CardTextBody>
           {metrics.map((metric, index) => (
-            <div key={index}>
-              <div>
-                <b>Name:</b> {metric.name}
-              </div>
-              <div>
-                <b>Value:</b> {metric.value}
-              </div>
-              <div>
-                <b>Points:</b>
-                {metric.points.map((point, pointIndex) => (
-                  <div key={pointIndex}>{point}</div>
-                ))}
-              </div>
-            </div>
+            <MetricItem key={index}>
+              <CircleContainer>
+                <CircleWithNumber number={metric.value} />
+              </CircleContainer>
+              <DataFlexbox>
+                <div>
+                  <b>Metric:</b> {metric.name}
+                </div>
+                <MetricPointsContainer>
+                  {metric.points.map((point, pointIndex) => (
+                    <div key={pointIndex}>• {point}</div>
+                  ))}
+                </MetricPointsContainer>
+              </DataFlexbox>
+            </MetricItem>
           ))}
         </CardTextBody>
       </CardTextWrapper>

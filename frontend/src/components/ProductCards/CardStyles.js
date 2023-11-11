@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   width: 300px;
+  height: 600px;
   display: grid;
   grid-template-columns: 300px;
   grid-template-rows: 210px 210px 80px;
@@ -15,7 +16,7 @@ export const CardWrapper = styled.div`
 export const CardImage = styled.div`
   grid-area: image;
   width: inherit;
-  background-image: url(${props => props.background});
+  background-image: url(${(props) => props.background});
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
@@ -38,7 +39,7 @@ export const CardTextTitle = styled.h2`
   min-width: 0px;
   line-height: 1.2;
   margin: 0px;
-  background: rgb(255,255,255);
+  background: rgb(255, 255, 255);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -48,4 +49,29 @@ export const CardTextBody = styled.p`
   color: grey;
   font-size: 15px;
   font-weight: 300;
+`;
+
+export const MetricPointsContainer = styled.div`
+  margin-left: -50px;
+`;
+
+export const MetricItem = styled.div`
+  display: flex;
+  align-items: left;
+  margin-bottom: 20px;
+`;
+
+export const TwoColumns = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const CircleContainer = styled.div`
+  margin-right: 20px;
+`;
+
+export const DataFlexbox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: left;
 `;
