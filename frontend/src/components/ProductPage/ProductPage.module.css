@@ -1,0 +1,9 @@
+.wrapper{
+    display: flex;
+    flex-flow: column;
+}
+
+.button{
+    background-color: #8A8D56 !important;
+    border-radius: 15px !important;
+}
