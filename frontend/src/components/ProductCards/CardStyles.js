@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   width: 300px;
-  height: 600px;
+  height: 575px;
   display: grid;
   grid-template-columns: 300px;
   grid-template-rows: 210px 210px 80px;
@@ -52,7 +52,7 @@ export const CardTextBody = styled.p`
 `;
 
 export const MetricPointsContainer = styled.div`
-  margin-left: -50px;
+  margin-left: 2px;
 `;
 
 export const MetricItem = styled.div`
@@ -67,11 +67,12 @@ export const TwoColumns = styled.div`
 `;
 
 export const CircleContainer = styled.div`
+  margin-top: 10px;
   margin-right: 20px;
 `;
 
 export const DataFlexbox = styled.div`
   display: flex;
   flex-direction: column;
-  align-content: left;
+  align-items: flex-start;
 `;
