@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
+import "./App.css";
+
 import Card, {
   RecommendedProductCard,
 } from "./components/ProductCards/RecommendedProductCard";
-import "./App.css";
+
+import ScoreCard from "./components/Score/ScoreCard";
+import logo from "./logo.svg";
 import turtle from "./turtle.jpeg";
 
 function App() {
@@ -13,6 +16,8 @@ function App() {
         metrics={[{"value": 2.1, "name": "carbon", "points": ["yo", "yo", "yo"]}, {"value": 2.1, "name": "carbon", "points": ["yo", "yo", "yo"]}]}
         imgUrl={turtle}
       />
+
+      <ScoreCard score={1}/>
     </>
   );
 }
