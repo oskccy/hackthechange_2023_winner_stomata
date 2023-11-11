@@ -6,7 +6,7 @@ export const CardWrapper = styled.div`
   flex: 1;
   padding: 0 1.5rem;
   margin: 1rem auto;
-  height: 575px;
+  // height: 575px;
   display: flex;
   flex-flow: column nowrap;
   // grid-template-columns: 300px;

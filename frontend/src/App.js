@@ -4,9 +4,14 @@ import ProductPage from "./components/ProductPage/ProductPage";
 
 function App() {
   return (
-    <>
-      <ProductPage/>
-    </>
+    <div className="App">
+      <ProductPage
+        product={{
+          imageUrl:"https://picsum.photos/500",
+          title:"Product Title"
+        }}
+      />
+    </div>
   );
 }
 
