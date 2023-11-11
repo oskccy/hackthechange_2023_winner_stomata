@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const getColor = (number) => {
+export const getColor = (number) => {
   const red = Math.floor(255 - (number * 25.5));
   const green = Math.floor(number * 25.5);
   return `rgb(${red}, ${green}, 0)`;
