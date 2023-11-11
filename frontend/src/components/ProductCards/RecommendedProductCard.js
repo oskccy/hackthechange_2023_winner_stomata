@@ -10,10 +10,12 @@ import {
   MetricPointsContainer,
 } from "./CardStyles";
 
-import { CircleWithNumber } from "../CircleWithNumber/CricleWithNumber";
+import CircleWithNumber from "../CircleWithNumber/CricleWithNumber";
+//import ReviewCard from "../ReviewCard/ReviewCard";
 
 export const RecommendedProductCard = ({ title, metrics, imgUrl }) => {
   return (
+
     <CardWrapper>
       <CardImage background={imgUrl} />
       <CardTextWrapper>
@@ -39,5 +41,6 @@ export const RecommendedProductCard = ({ title, metrics, imgUrl }) => {
         </CardTextBody>
       </CardTextWrapper>
     </CardWrapper>
+
   );
 };

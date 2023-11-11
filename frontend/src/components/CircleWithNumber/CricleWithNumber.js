@@ -18,7 +18,9 @@ const StyledCircle = styled.div`
   background-color: ${({ number }) => getColor(number)};
 `;
 
-export const CircleWithNumber = ({ number }) => {
+const CircleWithNumber = ({ number }) => {
   return <StyledCircle number={number}>{number}</StyledCircle>;
 };
+
+export default CircleWithNumber;
 
