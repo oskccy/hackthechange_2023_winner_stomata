@@ -17,7 +17,7 @@ function App() {
         imgUrl={turtle}
       />
 
-      <ScoreCard score={1}/>
+      <ScoreCard score={5.9}/>
     </>
   );
 }
