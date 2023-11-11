@@ -1,23 +1,25 @@
 import {
-  CardWrapper,
   CardImage,
-  CardTextWrapper,
-  CardTextTitle,
   CardTextBody,
-  MetricItem,
+  CardTextTitle,
+  CardTextWrapper,
+  CardWrapper,
   CircleContainer,
   DataFlexbox,
+  MetricItem,
   MetricPointsContainer,
 } from "./CardStyles";
 
 import { CircleWithNumber } from "../CircleWithNumber/CricleWithNumber";
+import ScoreCard from "../Score/ScoreCard";
 
-export const RecommendedProductCard = ({ title, metrics, imgUrl }) => {
+export const RecommendedProductCard = ({ title, metrics, score }) => {
   return (
     <CardWrapper>
-      <CardImage background={imgUrl} />
+      {/* <CardImage background={imgUrl} /> */}
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
+        <ScoreCard score={score}/>
         <CardTextBody>
           {metrics.map((metric, index) => (
             <MetricItem key={index}>

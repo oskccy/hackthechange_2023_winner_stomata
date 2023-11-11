@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-  width: 300px;
+  // max-width: 500px;
+  // width: 100%;
+  flex: 1;
+  padding: 0 1.5rem;
+  margin: 1rem auto;
   height: 575px;
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
+  display: flex;
+  flex-flow: column nowrap;
+  // grid-template-columns: 300px;
+  // grid-template-rows: 210px 210px 80px;
+  // grid-template-areas: "image" "text" "stats";
   border-radius: 18px;
-  background: #000;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  background: #FFFFFF;
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.9);
   text-align: center;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const CardImage = styled.div`
@@ -34,7 +41,7 @@ export const CardTextDate = styled.span`
 
 export const CardTextTitle = styled.h2`
   margin-top: 0px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   box-sizing: border-box;
   min-width: 0px;
   line-height: 1.2;
@@ -42,7 +49,7 @@ export const CardTextTitle = styled.h2`
   background: rgb(255, 255, 255);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  color: black;
 `;
 
 export const CardTextBody = styled.p`

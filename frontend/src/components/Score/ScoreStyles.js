@@ -5,6 +5,11 @@ export const ScoreWrapper = styled.div`
    display: flex;
    text-align: center;
    position: relative;
+   justify-content: center;
+   align-items: center;
+   flex-flow: row;
+   flex: 1;
+   margin: 1rem auto;
 `;
 
 export const ScoreValueWrapper = styled.div`
