@@ -1,11 +1,11 @@
-import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import ScoreCard from "./components/Score/ScoreCard";
-import turtle from "./turtle.jpeg";
-import CameraComponent from "./components/CameraComponent/CameraComponent";
 
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import CameraComponent from "./components/CameraComponent/CameraComponent";
+import HorizontalScroll from "./components/ScrollingComponent/ScrollingComponent";
 import ProductPage from "./components/ProductPage/ProductPage";
+import React from "react";
 
 function App() {
   return (

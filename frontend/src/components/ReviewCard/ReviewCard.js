@@ -5,7 +5,7 @@ import styled from "styled-components";
 import styles from "./ReviewCard.module.scss";
 
 const ReviewContainer = styled.div`
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   // margin: 20px;
 `;
 
@@ -99,7 +99,7 @@ const ReviewCard = () => {
   return (
     <ReviewContainer>
       {/* line */}
-      <div className={styles.line}></div>
+      {/* <div className={styles.line}></div> */}
       <div className={styles.writeReview}>
         <div className={styles.reviewStats}>
           <div className={styles.avgContainer}>
