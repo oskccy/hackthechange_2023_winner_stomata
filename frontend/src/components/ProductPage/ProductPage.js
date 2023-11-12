@@ -68,7 +68,11 @@ const ProductPage = () => {
       <div className={styles.container}>
         <ProductCard
           title={product.title}
-          score={product.score || 2.3}
+          score={
+            (product.evaluation.concerns[0].overall_score +
+            product.evaluation.concerns[1].overall_score +
+            product.evaluation.concerns[2].overall_score) / 3
+          }
           evaluations={product.evaluation || []}
         />
 

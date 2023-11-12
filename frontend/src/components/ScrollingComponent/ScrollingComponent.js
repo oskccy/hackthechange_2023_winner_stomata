@@ -18,12 +18,15 @@ const HorizontalScroll = ({ products }) => {
 export default HorizontalScroll;
 
 export function Product({ product, onClick }) {
+  console.log("product", product);
   return (
     <div
       onClick={() => onClick(product)}
       className={styles.product}
       style={{
-        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%),url(${product.image})`,
+
+        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%),url(${product.imgUrl})`,
+        backgroundSize: "cover",
       }}
     >
       <div className={styles.productImage}>
@@ -35,6 +38,7 @@ export function Product({ product, onClick }) {
       <div className={styles.productScore}>
         <p
           style={{
+            fontSize:"0.5rem",
             backgroundColor: `${getColor(product.score)}`,
           }}
         >

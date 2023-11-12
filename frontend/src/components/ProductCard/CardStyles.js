@@ -5,6 +5,7 @@ export const CardWrapper = styled.div`
   // width: 100%;
   flex: 1;
   padding: 0 1.5rem;
+  box-sizing: border-box;
   margin: 1rem auto;
   min-width: 290px;
   // height: 575px;
@@ -66,7 +67,8 @@ export const MetricPointsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  white-space: nowrap;
+  text-align:left;
+  /* white-space: nowrap; */
 `;
 
 export const MetricItem = styled.div`

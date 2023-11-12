@@ -96,6 +96,7 @@ const CameraComponent = () => {
           searchSettings,
         );
         const searchAlternatives = await fetchSearchAlternatives.json();
+        console.log("searchAlternatives", searchAlternatives);
 
         navigate("/product", {
           state: {
