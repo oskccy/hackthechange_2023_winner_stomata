@@ -5,14 +5,13 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-@app.route('/search')
+@app.route('/search', methods=['POST'])
 @cross_origin(supports_credentials=True)
 def search():
-    search_query = request.args.get('query')
+    data = request.get_json()  # Get data from POST body
+    search_query = data['query']  # Access the 'query' key
     search_results = perform_search(search_query)
-
-    print(search_results)
-    # Return the search results as JSON
+    
     return jsonify(search_results)
 
 if __name__ == '__main__':
