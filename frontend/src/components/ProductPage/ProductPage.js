@@ -26,9 +26,9 @@ const ProductPage = ({ product }) => {
           title={"Product Title"}
           score={7.5}
           metrics={[
-            { value: 4, name: "carbon-1-metric", points: ["yo", "yo", "yo"] },
-            { value: 5, name: "carbon-2 metric", points: ["yo", "yo", "yo"] },
-            { value: 8.9, name: "other-metric", points: ["yo", "yo", "yo"] },
+            { value: 4, name: "carbonmetric", points: ["yo"] },
+            { value: 5, name: "metric", points: ["yo"] },
+            { value: 8.9, name: "other-metric", points: ["yo"] },
           ]}
           // imgUrl={turtle}
         />
@@ -44,15 +44,15 @@ const ProductPage = ({ product }) => {
         </div>
 
         <div className={styles.scroll}>
-            <div className={styles.line}></div>
+            {/* <div className={styles.line}></div> */}
 
-            <h2 className={styles.title}>Similar Products</h2>
+            <h2 className={styles.title}>Recommended Products</h2>
             <div className={styles.scrollcontainer}>
                {productCardsArray.map((product,id) => (
                   <Product product={product} key={id} />
                ))}
             </div>
-         <div className={styles.line}></div>
+         {/* <div className={styles.line}></div> */}
 
         </div>
 

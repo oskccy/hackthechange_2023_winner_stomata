@@ -8,21 +8,30 @@
 .product{
     background-color: white;
     border-radius: 10px;
-   box-sizing: border-box;
-    height: min-content;
+    box-sizing: border-box;
+    // height: min-content;
     margin: 1rem;
     // scrollbar hide
-    min-width: 290px;
-    padding: 1.5rem;
-
+    // min-width: 290px;
+    padding: .75rem;
+    min-width: 125px;
+    height: 150px;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.15);;
 }
 
 .productTitle{
-    color: #585a37;
-    font-size: 1.1rem;
+    color: #ffffff;
+    font-size: 0.9rem;
     font-weight: 900;
-    margin-bottom: 1rem;
-    text-align: center;
+    // margin-bottom: 1rem;
+    text-align: left;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    // overflow: hidden;
 }
 
 .productImage{
@@ -41,21 +50,37 @@
     color: #585a37;
     display:flex;
     flex-flow: column nowrap;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 800;
-    justify-content: center;
-    text-align: center;
-    .productScoreTitle{
-        color: #585a37;
-        font-size: 1rem;
-        font-weight: 400;
-        left: 50%;
-        margin:-0.5rem 0 0 2.3rem;
-        position: relative;
-        // center on parent
-        transform: translate(-50%, -50%);
-        
+    justify-content: flex-start;
+    // text-align: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    // gradient background pointing up
+    p{
+        font-size: .75rem;
+        color: #ffffff;
+        margin: 0;
+        padding: .3rem 0.25rem;
+        max-width: 25px;
+        max-height: 25px;
+        border-radius: 50%;
+        box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.15);
+        filter: brightness(0.9);
     }
+    
+    // .productScoreTitle{
+    //     color: #585a37;
+    //     font-size: 1rem;
+    //     font-weight: 400;
+    //     left: 50%;
+    //     margin:-0.5rem 0 0 2.3rem;
+    //     position: relative;
+    //     // center on parent
+    //     transform: translate(-50%, -50%);
+        
+    // }
     
 }
 

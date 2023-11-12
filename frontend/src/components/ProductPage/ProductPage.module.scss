@@ -48,6 +48,7 @@
     padding: .8rem 5rem !important;
     font-weight: 900 !important;
     font-size: 1rem !important;
+    margin: 1rem 0 !important;
 }
 
 .buy{
@@ -66,12 +67,21 @@
     &::-webkit-scrollbar {
         display: none;
     }
+    box-sizing: border-box;
 }
 
 .scroll{
-    margin: 1rem 0 0 0;
+    margin: 1rem 0rem;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 0rem;
     .title{
         text-align: center;
+        font-size: 1.25rem;
+        font-weight: 900;
+        // margin-bottom: 1rem;
+        color:#585a37;
     }
 }
 

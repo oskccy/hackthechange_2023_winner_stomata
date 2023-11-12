@@ -6,6 +6,7 @@ export const CardWrapper = styled.div`
   flex: 1;
   padding: 0 1.5rem;
   margin: 1rem auto;
+  min-width: 290px;
   // height: 575px;
   display: flex;
   flex-flow: column nowrap;
@@ -60,12 +61,17 @@ export const CardTextBody = styled.p`
 
 export const MetricPointsContainer = styled.div`
   margin-left: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 `;
 
 export const MetricItem = styled.div`
   display: flex;
   align-items: left;
   margin-bottom: 20px;
+  justify-content: flex-start;
 `;
 
 export const TwoColumns = styled.div`
@@ -82,4 +88,5 @@ export const DataFlexbox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 `;
