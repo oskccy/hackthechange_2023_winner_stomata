@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 from analyze import analyze_image
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-
+CORS(app, support_credentials=True)
 
 @app.route("/analyze", methods=["POST"])
+@cross_origin(supports_credentials=True)
 def analyze():
     data = request.json
     image = data["image"]

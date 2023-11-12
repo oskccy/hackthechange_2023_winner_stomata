@@ -53,7 +53,7 @@ const CameraComponent = () => {
     // Make the fetch call
     try {
       const fetchVisionModel = await fetch(
-        "http://localhost:5001/analyze",
+        "http://localhost:5000/analyze",
         visionSettings
       );
       const data = await fetchVisionModel.json();
