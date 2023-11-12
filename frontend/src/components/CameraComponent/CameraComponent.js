@@ -62,9 +62,9 @@ const CameraComponent = () => {
           },
           body: JSON.stringify({ text: visionData.product, image: imageSrc }),
         });
+        console.log(evaluationResponse);
         const evaluationData = await evaluationResponse.json();
         
-
       const searchRequestBody = JSON.stringify({ query: visionData.product });
       
       const searchSettings = {

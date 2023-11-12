@@ -53,7 +53,7 @@ def complete(prompt, image):
     response = response.json()
     try:
         content = response["choices"][0]["message"]["content"]
-        print(content)
+        pprint(content)
         content = json.loads(content)
     except Exception as e:
         print(response)
