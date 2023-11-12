@@ -10,7 +10,7 @@ CORS(app, support_credentials=True)
 def search():
     data = request.get_json()  # Get data from POST body
     search_query = data['query']  # Access the 'query' key
-    search_results = perform_search(search_query)
+    search_results = perform_search(search_query, num_results='9')
     
     return jsonify(search_results)
 
@@ -19,7 +19,7 @@ def search():
 def search_alternatives():
     data = request.get_json()
     search_query = data['query'] + ' alternatives'
-    search_results = perform_search(search_query)
+    search_results = perform_search(search_query, num_results='3')
     
     return jsonify(search_results)
 

@@ -5,7 +5,7 @@ import os
 # load environment variables
 load_dotenv()
 
-def perform_search(query):
+def perform_search(query, num_results='9'):
     # Replace 'SERP_API_KEY' with your actual environment variable for the SERP API key
     api_key = os.getenv('SERP_API_KEY')
 
@@ -22,7 +22,7 @@ def perform_search(query):
                 'google_domain': 'google.com', 
                 'gl': 'us', 
                 'hl': 'en', 
-                'num': '9',
+                'num': num_results,
             }
         )
         response.raise_for_status()
