@@ -79,10 +79,14 @@ const CameraComponent = () => {
       const searchResults = await fetchSearchRecommendation.json();
       console.log(searchResults);
 
+      const fetchSearchAlternatives = await fetch("http://localhost:5001/search_alternatives", searchSettings);
+      const searchAlternatives = await fetchSearchAlternatives.json();
+
       navigate('/product', { state: { product: {
         imageUrl: "https://picsum.photos/500", 
         title: visionData.product, // Pass the product title directly from visionData
         evaluation: evaluationData, 
+        alternatives: searchAlternatives,
       }}});
 
     }} catch (error) {

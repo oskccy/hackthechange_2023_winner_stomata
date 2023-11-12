@@ -4,16 +4,25 @@ import Button from "@mui/material/Button";
 import ProductCard from "../ProductCard/ProductCard";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import ScrollingComponent from "../ScrollingComponent/ScrollingComponent";
-import productCardsArray from "./dummyData";
 import styles from "./ProductPage.module.scss";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 // import turtle from "../../turtle.jpeg";
 
 const ProductPage = () => {
   const location = useLocation();
-  const { product } = location.state || { imageUrl: 'default_image_url', title: 'Default Title', evaluation: 'Default Evaluation'};
-  console.log(product.evaluation);
+  const { product } = location.state || { imageUrl: 'default_image_url', title: 'Default Title', evaluation: 'Default Evaluation', alternatives: 'Default Alternatives'};
+  const [productCardsArray, setProductCardsArray] = useState(product.alternatives);
+  // console.log(product.evaluation);
+  console.log(product.alternatives);
+
+  useEffect(() => {
+    // If the product state updates, update the product cards
+    setProductCardsArray(product.alternatives);
+  }, [product.alternatives]);
+  
   return (
     <div className={styles.wrapper}>
       <div
@@ -52,9 +61,9 @@ const ProductPage = () => {
 
             <h2 className={styles.title}>Recommended Products</h2>
             <div className={styles.scrollcontainer}>
-               {productCardsArray.map((product,id) => (
-                  <Product product={product} key={id} />
-               ))}
+              {productCardsArray.slice(0, 3).map((product, id) => (
+                <Product product={product} key={id} />
+              ))}
             </div>
          {/* <div className={styles.line}></div> */}
 
