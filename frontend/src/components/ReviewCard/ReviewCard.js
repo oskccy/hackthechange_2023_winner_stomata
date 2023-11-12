@@ -18,7 +18,7 @@ const StarRatingContainer = styled.div`
 
 const Star = styled.span`
   cursor: pointer;
-  color: ${(props) => "#585a37"};
+  color: ${(props) => (props.selected ? "#ffc107" : "#585a37")};
 `;
 
 const ReviewInput = styled.textarea`
