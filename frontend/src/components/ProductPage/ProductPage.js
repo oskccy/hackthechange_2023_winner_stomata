@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import ProductCard from "../ProductCard/ProductCard";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import ScrollingComponent from "../ScrollingComponent/ScrollingComponent";
+import productCardsArray from "./dummyData";
 import styles from "./ProductPage.module.scss";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -13,17 +14,26 @@ import { useEffect } from "react";
 
 const ProductPage = () => {
   const location = useLocation();
-  const { product } = location.state || { imageUrl: 'default_image_url', title: 'Default Title', evaluation: 'Default Evaluation', alternatives: 'Default Alternatives'};
-  // take the top 3 alternatives
-  const [productCardsArray, setProductCardsArray] = useState(product.alternatives.slice(0, 3));
-  // console.log(product.evaluation);
-  console.log(product.alternatives);
+  const defaultProductState = {
+    imageUrl: 'https://picsum.photos/500',
+    title: 'Default Title',
+    evaluation: 'Default Evaluation',
+    alternatives: productCardsArray.slice(0, 3), // Use a sliced array of the dummy data
+  };
+
+  // If location.state is undefined, or doesn't have a product, use defaultProductState
+  const product = location.state?.product ?? defaultProductState;
+
+  // Now you can safely use productState.alternatives
+  const [productAlternativesArray, setProductAlternativesArray] = useState(product.alternatives);
 
   useEffect(() => {
-    // If the product state updates, update the product cards
-    setProductCardsArray(product.alternatives);
-  }, [product.alternatives]);
-  
+    // Update the state if location.state.product.alternatives exists
+    if(location.state?.product?.alternatives){
+      setProductAlternativesArray(location.state.product.alternatives.slice(0, 3));
+    }
+  }, [location.state]);
+
   return (
     <div className={styles.wrapper}>
       <div
@@ -62,7 +72,7 @@ const ProductPage = () => {
 
             <h2 className={styles.title}>Recommended Products</h2>
             <div className={styles.scrollcontainer}>
-              {productCardsArray.map((product, id) => (
+              {productAlternativesArray.map((product, id) => (
                 <Product product={product} key={id} />
               ))}
             </div>
