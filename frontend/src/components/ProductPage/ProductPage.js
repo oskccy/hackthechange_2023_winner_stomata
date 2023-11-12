@@ -57,6 +57,7 @@ const ProductPage = ({ product }) => {
         </div>
 
         <ReviewCard />
+        </div>
       </div>
     </div>
   );

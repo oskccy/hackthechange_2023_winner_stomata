@@ -53,25 +53,29 @@ const CameraComponent = () => {
     // Make the fetch call
     try {
       const fetchVisionModel = await fetch(
-        "http://localhost:5001/analyze",
+        "http://localhost:5000/analyze",
         visionSettings
       );
       const data = await fetchVisionModel.json();
       console.log(data);
+      const jsonProduct = JSON.stringify({
+        query: data["product"],
+      });
       const searchSettings = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: data,
+        body: jsonProduct,
       }
 
       const fetchSearchRecommendation = await fetch(
-        "http://localhost:500/search",
+        "http://localhost:5001/search",
         searchSettings
       );
 
-      console.log(fetchSearchRecommendation);
+      const searchResults = await fetchSearchRecommendation.json();
+      console.log(searchResults);
         
     } catch (error) {
       console.error("Error uploading image:", error);
