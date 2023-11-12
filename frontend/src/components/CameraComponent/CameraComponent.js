@@ -42,7 +42,7 @@ const CameraComponent = () => {
     const requestBody = JSON.stringify({ image: imageSrc });
     console.log(requestBody);
     // Fetch settings
-    const settings = {
+    const visionSettings = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,12 +52,27 @@ const CameraComponent = () => {
 
     // Make the fetch call
     try {
-      const fetchResponse = await fetch(
-        "http://localhost:5001/api/upload-image",
-        settings
+      const fetchVisionModel = await fetch(
+        "http://localhost:5001/analyze",
+        visionSettings
       );
-      const data = await fetchResponse.json();
+      const data = await fetchVisionModel.json();
       console.log(data);
+      const searchSettings = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
+      }
+
+      const fetchSearchRecommendation = await fetch(
+        "http://localhost:500/search",
+        searchSettings
+      );
+
+      console.log(fetchSearchRecommendation);
+        
     } catch (error) {
       console.error("Error uploading image:", error);
     }
