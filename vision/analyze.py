@@ -91,7 +91,7 @@ def evaluate_product(text, image):
                 "overall_score": 5
             }
         ]
-    }""" +"\nMake sure that you output only valid json in the format above"
+    }""" +"\nMake sure that you output only valid json in the format above. Start your response with the character {"
     print(prompt)
 
     return complete(prompt, image)
