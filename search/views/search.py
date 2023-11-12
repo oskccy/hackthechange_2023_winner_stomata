@@ -31,6 +31,7 @@ def perform_search(query, num_results='9'):
         for result in results:
             search_results.append({
                 'title': result.get('title'), # The field may vary depending on the SERP API's response
+                'imgUrl': result.get('thumbnail'), # The field may vary depending on the SERP API's response
             })
         print(search_results)
         
