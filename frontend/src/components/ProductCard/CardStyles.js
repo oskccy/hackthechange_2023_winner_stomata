@@ -33,6 +33,7 @@ export const CardImage = styled.div`
 export const CardTextWrapper = styled.div`
   grid-area: text;
   margin: 25px;
+  width:100%;
 `;
 
 export const CardTextDate = styled.span`
@@ -57,6 +58,7 @@ export const CardTextBody = styled.p`
   color: grey;
   font-size: 15px;
   font-weight: 300;
+  width:100%;
 `;
 
 export const MetricPointsContainer = styled.div`
@@ -72,6 +74,7 @@ export const MetricItem = styled.div`
   align-items: left;
   margin-bottom: 20px;
   justify-content: flex-start;
+  width:100%;
 `;
 
 export const TwoColumns = styled.div`
@@ -85,6 +88,7 @@ export const CircleContainer = styled.div`
 `;
 
 export const DataFlexbox = styled.div`
+width:100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
