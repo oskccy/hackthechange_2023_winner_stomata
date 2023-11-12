@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route('/search')
 def search():
     search_query = request.args.get('query')
-    
     search_results = perform_search(search_query)
 
     print(search_results)

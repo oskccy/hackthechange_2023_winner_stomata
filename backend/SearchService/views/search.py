@@ -6,26 +6,31 @@ import os
 load_dotenv()
 
 def perform_search(query):
-    api_key = os.getenv('GOOGLE_API_KEY')
-    cse_id = os.getenv('GOOGLE_CSE_ID')
+    # Replace 'SERP_API_KEY' with your actual environment variable for the SERP API key
+    api_key = os.getenv('SERP_API_KEY')
 
     search_results = []
 
     try:
+        # Replace the URL and parameters with the ones provided by the SERP API documentation
         response = requests.get(
-            'https://www.googleapis.com/customsearch/v1',
+            'https://serpapi.com/search',
             params={
-                'key': api_key,
-                'cx': cse_id,
+                'api_key': api_key,
+                'engine': 'google_shopping', 
                 'q': query,
+                'google_domain': 'google.com', 
+                'gl': 'us', 
+                'hl': 'en', 
+                'num': "10",
             }
         )
         response.raise_for_status()
-        results = response.json().get('items', [])
+        results = response.json().get('shopping_results', []) 
 
         for result in results:
             search_results.append({
-                'title': result['title'],
+                'title': result.get('title'), # The field may vary depending on the SERP API's response
             })
         print(search_results)
         
