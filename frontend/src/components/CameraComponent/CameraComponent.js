@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 
 import Webcam from 'react-webcam';
 import styled from 'styled-components';
+import styles from './CameraComponent.module.scss';
 
 const videoConstraints = {
   width: 390,
@@ -44,6 +45,7 @@ const CameraComponent = () => {
   return (
     <BackgroundDiv>
       <Webcam
+        className={styles.webcam}
         audio={false}
         ref={webcamRef}
         width={390}
