@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import Webcam from 'react-webcam';
-import styled from 'styled-components';
-import styles from './CameraComponent.module.scss';
+import Webcam from "react-webcam";
+import styled from "styled-components";
+import styles from "./CameraComponent.module.scss";
 
 const videoConstraints = {
   width: 390,
   height: 844,
-  facingMode: 'user',
+  facingMode: "user",
 };
 
 const BackgroundDiv = styled.div`
@@ -17,29 +17,50 @@ const BackgroundDiv = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
 `;
 
 const CaptureButton = styled.button`
   position: fixed;
-  border:9px solid white;
-  border-radius:50%;
+  border: 9px solid white;
+  border-radius: 50%;
   left: 41%;
   top: 80%;
-  background:rgba(0,0,0,0);
-  color:white;
-  width:90px;
-  height:90px;
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  width: 90px;
+  height: 90px;
   cursor: pointer;
 `;
 
 const CameraComponent = () => {
   const webcamRef = useRef(null);
 
-  const capture = () => {
+  const capture = async () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    // there will be pushing the image to the model
-    console.log(imageSrc);
+
+    // Prepare the request body as JSON
+    const requestBody = JSON.stringify({ image: imageSrc });
+    console.log(requestBody);
+    // Fetch settings
+    const settings = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: requestBody,
+    };
+
+    // Make the fetch call
+    try {
+      const fetchResponse = await fetch(
+        "http://localhost:5001/api/upload-image",
+        settings
+      );
+      const data = await fetchResponse.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
 
   return (
@@ -53,7 +74,7 @@ const CameraComponent = () => {
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
       />
-      <CaptureButton onClick={capture}/>
+      <CaptureButton onClick={capture} />
     </BackgroundDiv>
   );
 };
