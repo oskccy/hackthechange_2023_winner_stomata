@@ -100,7 +100,7 @@ const CameraComponent = () => {
         navigate("/product", {
           state: {
             product: {
-              imageUrl: "https://picsum.photos/500",
+              imageUrl: imageSrc,
               title: visionData.product, // Pass the product title directly from visionData
               evaluation: evaluationData,
               alternatives: searchAlternatives,

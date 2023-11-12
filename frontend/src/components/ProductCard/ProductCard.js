@@ -15,25 +15,28 @@ import ScoreCard from "../Score/ScoreCard";
 
 //import ReviewCard from "../ReviewCard/ReviewCard";
 
-const ProductCard = ({ title, metrics, score }) => {
+const ProductCard = ({ title, evaluations, score }) => {
+  console.log("e", evaluations);
   return (
-    <CardWrapper>
+    <CardWrapper style={{
+      width: "100%",
+    }}>
       {/* <CardImage background={imgUrl} /> */}
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
         <ScoreCard score={score} />
         <CardTextBody>
-          {metrics.map((metric, index) => (
+          {evaluations.concerns.map((evaluation, index) => (
             <MetricItem key={index}>
               <CircleContainer>
-                <CircleWithNumber number={metric.value} />
+                <CircleWithNumber number={evaluation.overall_score} />
               </CircleContainer>
               <DataFlexbox>
                 <div>
-                  <b>Metric:</b> {metric.name}
+                  <b>Metric:</b> {evaluation.name}
                 </div>
                 <MetricPointsContainer>
-                  {metric.points.map((point, pointIndex) => (
+                  {evaluation.points.map((point, pointIndex) => (
                     <div key={pointIndex}>• {point}</div>
                   ))}
                 </MetricPointsContainer>

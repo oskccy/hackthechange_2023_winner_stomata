@@ -28,11 +28,12 @@ const ProductPage = () => {
     alternatives: productCardsArray,
   };
   const [product, setProduct] = useState(
-    location.state?.product ?? defaultProductState
+    location.state?.product ?? defaultProductState,
   );
   const [productAlternativesArray, setProductAlternativesArray] = useState(
-    product.alternatives
+    product.alternatives,
   );
+  console.log("product", product);
 
   const redirectToHome = () => {
     navigate("/");
@@ -68,31 +69,7 @@ const ProductPage = () => {
         <ProductCard
           title={product.title}
           score={product.score || 2.3}
-          metrics={
-            Array.isArray(product.metrics) && product.metrics.length > 0
-              ? [
-                  {
-                    value: product.metrics[0]?.value || 2.3,
-                    name: product.metrics[0]?.name || "N/A",
-                    points: product.metrics[0]?.points || [],
-                  },
-                  {
-                    value: product.metrics[1]?.value || 2.4,
-                    name: product.metrics[1]?.name || "N/A",
-                    points: product.metrics[1]?.points || [],
-                  },
-                  {
-                    value: product.metrics[2]?.value || 2.2,
-                    name: product.metrics[2]?.name || "N/A",
-                    points: product.metrics[2]?.points || [],
-                  },
-                ]
-              : [
-                  { value: 2.3, name: "N/A", points: [] },
-                  { value: 2.2, name: "N/A", points: [] },
-                  { value: 2.4, name: "N/A", points: [] },
-                ] // Fallback if metrics is not an array or is empty
-          }
+          evaluations={product.evaluation || []}
         />
 
         <div className={styles.buy}>
