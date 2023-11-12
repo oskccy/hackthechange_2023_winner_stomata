@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
+
 import Webcam from 'react-webcam';
 import styled from 'styled-components';
 
 const videoConstraints = {
   width: 390,
-  height: 720,
+  height: 844,
   facingMode: 'user',
 };
 
@@ -14,6 +15,8 @@ const BackgroundDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  
 `;
 
 const CaptureButton = styled.button`
