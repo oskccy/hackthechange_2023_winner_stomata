@@ -6,10 +6,14 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import ScrollingComponent from "../ScrollingComponent/ScrollingComponent";
 import productCardsArray from "./dummyData";
 import styles from "./ProductPage.module.scss";
+import { useLocation } from "react-router-dom";
 
 // import turtle from "../../turtle.jpeg";
 
-const ProductPage = ({ product }) => {
+const ProductPage = () => {
+  const location = useLocation();
+  const { product } = location.state || { imageUrl: 'default_image_url', title: 'Default Title', evaluation: 'Default Evaluation'};
+  console.log(product.evaluation);
   return (
     <div className={styles.wrapper}>
       <div
@@ -23,7 +27,7 @@ const ProductPage = ({ product }) => {
       </div>
       <div className={styles.container}>
         <ProductCard
-          title={"Product Title"}
+          title={product.title}
           score={7.5}
           metrics={[
             { value: 4, name: "carbonmetric", points: ["yo"] },

@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import Webcam from "react-webcam";
 import styled from "styled-components";
 import styles from "./CameraComponent.module.scss";
+import { useNavigate } from 'react-router-dom';
 
 const videoConstraints = {
   width: 390,
@@ -34,14 +35,13 @@ const CaptureButton = styled.button`
 
 const CameraComponent = () => {
   const webcamRef = useRef(null);
+  const navigate = useNavigate();
 
   const capture = async () => {
     const imageSrc = webcamRef.current.getScreenshot();
 
-    // Prepare the request body as JSON
     const requestBody = JSON.stringify({ image: imageSrc });
-    console.log(requestBody);
-    // Fetch settings
+
     const visionSettings = {
       method: "POST",
       headers: {
@@ -50,37 +50,46 @@ const CameraComponent = () => {
       body: requestBody,
     };
 
-    // Make the fetch call
     try {
-      const fetchVisionModel = await fetch(
-        "http://localhost:5000/analyze",
-        visionSettings
-      );
-      const data = await fetchVisionModel.json();
-      console.log(data);
-      const jsonProduct = JSON.stringify({
-        query: data["product"],
-      });
+      const fetchVisionModel = await fetch("http://localhost:5000/analyze", visionSettings);
+      const visionData = await fetchVisionModel.json();
+
+      if (visionData && visionData.product) {
+        const evaluationResponse = await fetch("http://localhost:5000/evaluate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: visionData.product, image: imageSrc }),
+        });
+        const evaluationData = await evaluationResponse.json();
+        
+
+      const searchRequestBody = JSON.stringify({ query: visionData.product });
+      
       const searchSettings = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: jsonProduct,
-      }
+        body: searchRequestBody,
+      };
 
-      const fetchSearchRecommendation = await fetch(
-        "http://localhost:5001/search",
-        searchSettings
-      );
-
+      const fetchSearchRecommendation = await fetch("http://localhost:5001/search", searchSettings);
       const searchResults = await fetchSearchRecommendation.json();
       console.log(searchResults);
-        
-    } catch (error) {
+
+      navigate('/product', { state: { product: {
+        imageUrl: "https://picsum.photos/500", 
+        title: visionData.product, // Pass the product title directly from visionData
+        evaluation: evaluationData, 
+      }}});
+
+    }} catch (error) {
       console.error("Error uploading image:", error);
     }
   };
+
 
   return (
     <BackgroundDiv>
