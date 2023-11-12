@@ -1,0 +1,82 @@
+.button{
+    background-color: #8A8D56 !important;
+    border-radius: 10px !important;
+    padding: .8rem 5rem !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+    margin: .5rem 0;
+
+}
+
+.writeReview{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 .75rem;
+}
+
+.avg{
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0 0 0 0;
+    color: #585a37;
+    align-items: center;
+}
+
+.total{
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0rem 0;
+    color: #585a37;
+}
+.ReviewDisplay{
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+}
+
+.review{
+    margin-top: 1rem;
+}
+
+.avgContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.reviewStats{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: .25rem 1rem;
+    width: 100%;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    border: none;
+    resize: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.15);
+}
+
+.line{
+    width: 90%;
+    height: 1px;
+    
+    background-color: #585a37;
+    margin-top: .5rem;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    // justify-self: center;
+    // align-self: center;
+}
