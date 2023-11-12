@@ -59,8 +59,7 @@ const ProductPage = ({ product }) => {
         <ReviewCard />
         </div>
       </div>
-    </div>
-  );
+  )
 };
 
 export default ProductPage;
