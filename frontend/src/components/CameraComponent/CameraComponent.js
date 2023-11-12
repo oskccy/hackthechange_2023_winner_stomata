@@ -57,13 +57,13 @@ const CameraComponent = () => {
         visionSettings
       );
       const data = await fetchVisionModel.json();
-      console.log(data);
+      console.log(data["product"]);
       const searchSettings = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: data,
+        body: data["product"],
       }
 
       const fetchSearchRecommendation = await fetch(
