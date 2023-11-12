@@ -4,12 +4,10 @@ import os
 
 # load environment variables
 load_dotenv()
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID')
 
 def perform_search(query):
-    api_key = GOOGLE_API_KEY
-    cse_id = GOOGLE_CSE_ID
+    api_key = os.getenv('GOOGLE_API_KEY')
+    cse_id = os.getenv('GOOGLE_CSE_ID')
 
     search_results = []
 
