@@ -14,12 +14,11 @@ const StarRatingContainer = styled.div`
   align-items: center;
   // margin-bottom: 20px;
   font-size: 1.5rem;
-  
 `;
 
 const Star = styled.span`
   cursor: pointer;
-  color: ${(props) => (props.selected ? "#ffc107" : "#585a37")};
+  color: ${(props) => "#585a37"};
 `;
 
 const ReviewInput = styled.textarea`
@@ -48,33 +47,56 @@ const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
-const defaultReviews = [
+ const USER_NAMES = [
+  "Max Zabarka",
+  "Mark Havkin",
+  "Andy Zhou",
+  "Nate Wu",
+  "Oscar Spencer",
+  "Evelyn Carter",
+  "Maxwell Johnson",
+  "Isabella Rodriguez",
+  "Ethan Smith",
+  "Olivia Martinez",
+  "Liam Brown",
+  "Ava Davis",
+  "Mason Garcia",
+  "Sophia Anderson",
+  "Jacob Miller",
+  "Mia Wilson",
+  "William Moore",
+  "Amelia Taylor",
+  "James Thomas",
+  "Charlotte Jackson",
+];
+
+const DEFAULT_REVIEWS = [
   {
-    "rating": 5,
-    "text": "The sustainable product exceeded my expectations by seamlessly integrating eco-friendly principles without compromising its functionality. The attention to detail in ensuring sustainability while maintaining a high standard of quality is truly commendable."
+    rating: 5,
+    text: "The sustainable product exceeded my expectations by seamlessly integrating eco-friendly principles without compromising its functionality. The attention to detail in ensuring sustainability while maintaining a high standard of quality is truly commendable.",
   },
   {
-    "rating": 4,
-    "text": "Impressed by the sustainability and quality of the product, it's a valuable choice for those seeking eco-friendly solutions. Minor enhancements could elevate it, but it's definitely a step in the right direction for sustainable products."
+    rating: 4,
+    text: "Impressed by the sustainability and quality of the product, it's a valuable choice for those seeking eco-friendly solutions. Minor enhancements could elevate it, but it's definitely a step in the right direction for sustainable products.",
   },
   {
-    "rating": 5,
-    "text": "This product isn't just sustainable; it's high-performing. The blend of sustainability and functionality is admirable, making it a solid recommendation for anyone looking for an eco-conscious yet efficient solution."
+    rating: 5,
+    text: "This product isn't just sustainable; it's high-performing. The blend of sustainability and functionality is admirable, making it a solid recommendation for anyone looking for an eco-conscious yet efficient solution.",
   },
   {
-    "rating": 4,
-    "text": "The sustainable design is efficient and doesn't compromise functionality. A smart purchase for those prioritizing eco-friendly solutions without sacrificing practicality. Some tweaks could further enhance its appeal."
+    rating: 4,
+    text: "The sustainable design is efficient and doesn't compromise functionality. A smart purchase for those prioritizing eco-friendly solutions without sacrificing practicality. Some tweaks could further enhance its appeal.",
   },
   {
-    "rating": 5,
-    "text": "This product beautifully showcases the seamless blend of sustainability and quality. It's a testament to the dedication to environmental responsibility while delivering an excellent product."
-  }
-]
+    rating: 5,
+    text: "This product beautifully showcases the seamless blend of sustainability and quality. It's a testament to the dedication to environmental responsibility while delivering an excellent product.",
+  },
+];
 
 const ReviewCard = () => {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
-  const [submittedReviews, setSubmittedReviews] = useState(defaultReviews);
+  const [submittedReviews, setSubmittedReviews] = useState(DEFAULT_REVIEWS);
   const [averageRating, setAverageRating] = useState(0);
 
   const handleStarClick = (index) => {
@@ -84,8 +106,8 @@ const ReviewCard = () => {
   const handleSubmit = () => {
     const newReview = { rating, text: review };
     setSubmittedReviews([...submittedReviews, newReview]);
-    setRating(0); 
-    setReview(""); 
+    setRating(0);
+    setReview("");
   };
 
   useEffect(() => {
@@ -107,31 +129,49 @@ const ReviewCard = () => {
             <h3 className={styles.total}>{submittedReviews.length} reviews</h3>
           </div>
           <StarRatingContainer>
-              {[1, 2, 3, 4, 5].map((index) => (
-                <Star
-                  key={index}
-                  selected={index <= rating}
-                  onClick={() => handleStarClick(index)}
-                >
-                  ★
-                </Star>
-              ))}
-            </StarRatingContainer>
+            {[1, 2, 3, 4, 5].map((index) => (
+              <Star
+                key={index}
+                selected={index <= rating}
+                onClick={() => handleStarClick(index)}
+              >
+                ★
+              </Star>
+            ))}
+          </StarRatingContainer>
         </div>
-        
-        
+
         <ReviewInput
           placeholder="What's your experience?"
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />
       </div>
-      
-      <Button className={styles.button} fullWidth variant="contained" onClick={handleSubmit}>Submit</Button>
+
+      <Button
+        className={styles.button}
+        fullWidth
+        variant="contained"
+        onClick={handleSubmit}
+      >
+        Submit
+      </Button>
 
       {submittedReviews.map((submittedReview, index) => (
         <ReviewDisplay className={styles.ReviewDisplay} key={index}>
-          <span>{submittedReview.rating}.0 <span style={{color:'gold'}}>{"★".repeat(submittedReview.rating)}</span></span>
+          <span
+            style={{
+              display: "flex",
+              justifyContent:"space-between",
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+            }}
+          >
+            {USER_NAMES[index % USER_NAMES.length]} 
+            <span style={{ color: "green", fontSize: "1.2rem" }}>
+              {"★".repeat(submittedReview.rating)}
+            </span>
+          </span>
           <div className={styles.review}>{submittedReview.text}</div>
         </ReviewDisplay>
       ))}

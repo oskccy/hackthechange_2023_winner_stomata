@@ -5,7 +5,8 @@ export const CardWrapper = styled.div`
   // width: 100%;
   flex: 1;
   padding: 0 1.5rem;
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
+  margin: 1rem 0;
   // height: 575px;
   display: flex;
   flex-flow: column nowrap;
