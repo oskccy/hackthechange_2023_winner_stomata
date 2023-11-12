@@ -4,6 +4,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import CameraComponent from "./components/CameraComponent/CameraComponent";
 import ProductPage from "./components/ProductPage/ProductPage";
+import Login from "./components/AuthenticationComponent/Login";
 import React from "react";
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
               <ProductPage/>
             }
           />
-          <Route path="" element={<CameraComponent />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/camera" element={<CameraComponent />} />
         </Routes>
       </div>
     </Router>
