@@ -67,7 +67,7 @@ const CameraComponent = () => {
       }
 
       const fetchSearchRecommendation = await fetch(
-        "http://localhost:500/search",
+        "http://localhost:5001/search",
         searchSettings
       );
 
