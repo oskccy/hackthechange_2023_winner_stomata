@@ -12,9 +12,9 @@ export const CardWrapper = styled.div`
   // grid-template-columns: 300px;
   // grid-template-rows: 210px 210px 80px;
   // grid-template-areas: "image" "text" "stats";
-  border-radius: 18px;
+  border-radius: 10px;
   background: #FFFFFF;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
   align-items: center;
   justify-content: center;

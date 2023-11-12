@@ -11,14 +11,19 @@
     display: flex;
     flex-flow: column;
     max-width: 500px;
-    padding: 0 1rem;
-    margin: 1rem 0;
+    padding: 1rem 2rem;
+    // margin: 1rem 0;
+    max-height: 80vh;
+    overflow-y: scroll;
+    flex: 0.8;
+    z-index: 0;
 }
 
 .image{
     width: 100%;
-    overflow: hidden;
-    height: 10rem;
+    // overflow: hidden;
+    height: 100%;
+    flex: 0.2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,13 +38,13 @@
     .title{
         color: white;
         margin-top: auto;
-        // gradient from bottom up
     }
+    z-index: 1;
 }
 
 .button{
     background-color: #8A8D56 !important;
-    border-radius: 15px !important;
+    border-radius: 10px !important;
     padding: .8rem 5rem !important;
     font-weight: 900 !important;
     font-size: 1rem !important;

@@ -13,7 +13,6 @@ const ProductPage = ({product}) => {
                   backgroundSize: "cover",
                }}   
             >
-               {/* <img src={product.imageUrl} alt={product.title} /> */}
                <h2 className={styles.title}>{product.title}</h2>
             </div>
             <div className={styles.container}>

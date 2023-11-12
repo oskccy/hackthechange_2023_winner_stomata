@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
+import { Button } from "@mui/material";
 import styled from "styled-components";
+import styles from "./ReviewCard.module.scss";
 
 const ReviewContainer = styled.div`
   margin-top: 100px;
-  margin: 20px;
+  // margin: 20px;
 `;
 
 const StarRatingContainer = styled.div`
@@ -29,8 +31,8 @@ const ReviewInput = styled.textarea`
 const ReviewDisplay = styled.div`
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  // border: 1px solid #ddd;
+  border-radius: 10px;
   background-color: #f8f8f8;
 `;
 
@@ -101,12 +103,12 @@ const ReviewCard = () => {
         value={review}
         onChange={(e) => setReview(e.target.value)}
       />
-      <SubmitButton onClick={handleSubmit}>Submit Review</SubmitButton>
+      <Button className={styles.button} fullWidth variant="contained" onClick={handleSubmit}>Submit</Button>
 
       {submittedReviews.map((submittedReview, index) => (
-        <ReviewDisplay key={index}>
+        <ReviewDisplay className={styles.ReviewDisplay} key={index}>
           <span>{submittedReview.rating}.0 <span style={{color:'gold'}}>{"★".repeat(submittedReview.rating)}</span></span>
-          <div>{submittedReview.text}</div>
+          <div className={styles.review}>{submittedReview.text}</div>
         </ReviewDisplay>
       ))}
     </ReviewContainer>
