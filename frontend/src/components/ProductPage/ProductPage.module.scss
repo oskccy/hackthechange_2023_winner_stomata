@@ -10,7 +10,6 @@
 .container{
     display: flex;
     flex-flow: column;
-    flex: 0.8;
     max-width: 500px;
     padding: 0 1rem;
     margin: 1rem 0;
@@ -19,7 +18,7 @@
 .image{
     width: 100%;
     overflow: hidden;
-    flex: 0.20;
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;

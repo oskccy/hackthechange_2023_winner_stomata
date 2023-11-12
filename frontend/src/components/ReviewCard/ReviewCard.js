@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import styled from "styled-components";
 
 const ReviewContainer = styled.div`
@@ -43,10 +44,33 @@ const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
+const defaultReviews = [
+  {
+    "rating": 5,
+    "text": "The sustainable product exceeded my expectations by seamlessly integrating eco-friendly principles without compromising its functionality. The attention to detail in ensuring sustainability while maintaining a high standard of quality is truly commendable."
+  },
+  {
+    "rating": 4,
+    "text": "Impressed by the sustainability and quality of the product, it's a valuable choice for those seeking eco-friendly solutions. Minor enhancements could elevate it, but it's definitely a step in the right direction for sustainable products."
+  },
+  {
+    "rating": 5,
+    "text": "This product isn't just sustainable; it's high-performing. The blend of sustainability and functionality is admirable, making it a solid recommendation for anyone looking for an eco-conscious yet efficient solution."
+  },
+  {
+    "rating": 4,
+    "text": "The sustainable design is efficient and doesn't compromise functionality. A smart purchase for those prioritizing eco-friendly solutions without sacrificing practicality. Some tweaks could further enhance its appeal."
+  },
+  {
+    "rating": 5,
+    "text": "This product beautifully showcases the seamless blend of sustainability and quality. It's a testament to the dedication to environmental responsibility while delivering an excellent product."
+  }
+]
+
 const ReviewCard = () => {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
-  const [submittedReviews, setSubmittedReviews] = useState([]);
+  const [submittedReviews, setSubmittedReviews] = useState(defaultReviews);
 
   const handleStarClick = (index) => {
     setRating(index);
@@ -81,8 +105,8 @@ const ReviewCard = () => {
 
       {submittedReviews.map((submittedReview, index) => (
         <ReviewDisplay key={index}>
-          <div>Rating: {"★".repeat(submittedReview.rating)}</div>
-          <div>Review: {submittedReview.text}</div>
+          <span>{submittedReview.rating}.0 <span style={{color:'gold'}}>{"★".repeat(submittedReview.rating)}</span></span>
+          <div>{submittedReview.text}</div>
         </ReviewDisplay>
       ))}
     </ReviewContainer>
