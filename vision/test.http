@@ -1,0 +1,6 @@
+POST http://localhost:5000/analyze HTTP/1.1
+Content-Type: application/json
+
+{
+    "image": "https://s.yimg.com/ny/api/res/1.2/To6wRGhxPLZQ3tlTTyTo.A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/os/creatr-uploaded-images/2022-05/d194ac10-d780-11ec-bafd-6d7b3660d120"
+}
