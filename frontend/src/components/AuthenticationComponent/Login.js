@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import ecoChoiceLogo from './eco_choice_logo.png';
+import ecoChoiceLogo from './eco_choice_logo_clear.png';
+import PreLoader from './Preloader';
 
 function Login() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set a timeout to simulate the preloader
+    const timer = setTimeout(() => setLoading(false), 5000); // 3000 ms for example
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleLogin = (event) => {
     event.preventDefault();
     navigate('/camera'); // Navigate to the camera page
   };
 
+  if (loading) {
+    return <PreLoader />;
+  }
+
   return (
+    <>
+    <PreLoader />
     <Box
       sx={{
         marginTop: 8,
@@ -29,7 +44,6 @@ function Login() {
         alt="Eco Choice Logo" 
         style={{ 
         maxWidth: '150px', // Controls the size of the image
-        opacity: 0.5, // Sets the transparency of the image; 1 is fully opaque and 0 is fully transparent
         }}
     />
     </Typography>
@@ -65,6 +79,7 @@ function Login() {
         </Button>
       </Box>
     </Box>
+    </>
   );
 }
 
