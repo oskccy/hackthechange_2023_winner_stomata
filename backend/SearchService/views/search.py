@@ -22,7 +22,7 @@ def perform_search(query):
                 'google_domain': 'google.com', 
                 'gl': 'us', 
                 'hl': 'en', 
-                'num': "10",
+                'num': '9',
             }
         )
         response.raise_for_status()
