@@ -15,14 +15,13 @@ import ScoreCard from "../Score/ScoreCard";
 
 //import ReviewCard from "../ReviewCard/ReviewCard";
 
-export const RecommendedProductCard = ({ title, metrics, score }) => {
+const ProductCard = ({ title, metrics, score }) => {
   return (
-
     <CardWrapper>
       {/* <CardImage background={imgUrl} /> */}
       <CardTextWrapper>
         <CardTextTitle>{title}</CardTextTitle>
-        <ScoreCard score={score}/>
+        <ScoreCard score={score} />
         <CardTextBody>
           {metrics.map((metric, index) => (
             <MetricItem key={index}>
@@ -44,6 +43,7 @@ export const RecommendedProductCard = ({ title, metrics, score }) => {
         </CardTextBody>
       </CardTextWrapper>
     </CardWrapper>
-
   );
 };
+
+export default ProductCard;
