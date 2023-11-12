@@ -55,7 +55,7 @@ const ProductPage = () => {
       <div
         className={styles.image}
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0)), url(${product.image})`,
+          backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0)), url(${product.imageUrl})`,
           backgroundSize: "cover",
         }}
       >
