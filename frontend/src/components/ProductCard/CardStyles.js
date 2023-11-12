@@ -63,8 +63,8 @@ export const MetricPointsContainer = styled.div`
   margin-left: 2px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-items: flex-start;
+  white-space: nowrap;
 `;
 
 export const MetricItem = styled.div`

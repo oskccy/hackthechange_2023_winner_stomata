@@ -3,7 +3,6 @@ import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import CameraComponent from "./components/CameraComponent/CameraComponent";
-import HorizontalScroll from "./components/ScrollingComponent/ScrollingComponent";
 import ProductPage from "./components/ProductPage/ProductPage";
 import React from "react";
 
@@ -15,12 +14,7 @@ function App() {
           <Route
             path="/product"
             element={
-              <ProductPage
-                product={{
-                  imageUrl: "https://picsum.photos/500",
-                  title: "Product Title",
-                }}
-              />
+              <ProductPage/>
             }
           />
           <Route path="" element={<CameraComponent />} />
