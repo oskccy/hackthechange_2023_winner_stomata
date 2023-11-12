@@ -14,7 +14,7 @@ export const CardWrapper = styled.div`
   // grid-template-areas: "image" "text" "stats";
   border-radius: 18px;
   background: #FFFFFF;
-  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
   text-align: center;
   align-items: center;
   justify-content: center;
