@@ -74,7 +74,8 @@ const CameraComponent = () => {
         searchSettings
       );
 
-      console.log(fetchSearchRecommendation);
+      const searchResults = await fetchSearchRecommendation.json();
+      console.log(searchResults);
         
     } catch (error) {
       console.error("Error uploading image:", error);
