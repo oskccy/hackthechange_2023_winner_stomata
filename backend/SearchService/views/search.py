@@ -1,8 +1,15 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+# load environment variables
+load_dotenv()
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID')
 
 def perform_search(query):
-    api_key = 'AIzaSyDtnuUNrqxcCqnx75v8kgTw6-jimucRkPw'
-    cse_id = '86cc21440c2fa4564'
+    api_key = GOOGLE_API_KEY
+    cse_id = GOOGLE_CSE_ID
 
     search_results = []
 
