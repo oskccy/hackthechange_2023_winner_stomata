@@ -18,7 +18,7 @@ const ProductPage = () => {
     imageUrl: 'https://picsum.photos/500',
     title: 'Default Title',
     evaluation: 'Default Evaluation',
-    alternatives: productCardsArray.slice(0, 3), // Use a sliced array of the dummy data
+    alternatives: productCardsArray, // Use a sliced array of the dummy data
   };
 
   // If location.state is undefined, or doesn't have a product, use defaultProductState
@@ -30,7 +30,7 @@ const ProductPage = () => {
   useEffect(() => {
     // Update the state if location.state.product.alternatives exists
     if(location.state?.product?.alternatives){
-      setProductAlternativesArray(location.state.product.alternatives.slice(0, 3));
+      setProductAlternativesArray(location.state.product.alternatives);
     }
   }, [location.state]);
 
