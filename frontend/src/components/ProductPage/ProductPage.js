@@ -1,9 +1,12 @@
+import HorizontalScroll, { Product } from "../ScrollingComponent/ScrollingComponent";
+
 import Button from "@mui/material/Button";
 import ProductCard from "../ProductCard/ProductCard";
 import ReviewCard from "../ReviewCard/ReviewCard";
-import styles from "./ProductPage.module.scss";
 import ScrollingComponent from "../ScrollingComponent/ScrollingComponent";
 import productCardsArray from "./dummyData";
+import styles from "./ProductPage.module.scss";
+
 // import turtle from "../../turtle.jpeg";
 
 const ProductPage = ({ product }) => {
@@ -39,6 +42,20 @@ const ProductPage = ({ product }) => {
             Add to Cart
           </Button>
         </div>
+
+        <div className={styles.scroll}>
+            <div className={styles.line}></div>
+
+            <h2 className={styles.title}>Similar Products</h2>
+            <div className={styles.scrollcontainer}>
+               {productCardsArray.map((product,id) => (
+                  <Product product={product} key={id} />
+               ))}
+            </div>
+         <div className={styles.line}></div>
+
+        </div>
+
         <ReviewCard />
       </div>
     </div>

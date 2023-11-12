@@ -53,3 +53,37 @@
 .buy{
     /* padding: 5rem; */
 }
+
+.scrollcontainer{
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: scroll;
+    max-width: 80vw;
+    height: auto;
+    margin: 1rem 0 0 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.scroll{
+    margin: 1rem 0 0 0;
+    .title{
+        text-align: center;
+    }
+}
+
+.line{
+    width: 90%;
+    height: 1px;
+    
+    background-color: #585a37;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    // justify-self: center;
+    // align-self: center;
+}

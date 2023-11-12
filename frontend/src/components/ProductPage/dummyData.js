@@ -19,7 +19,8 @@ const productCardsArray = [
         }
       ],
       score: 9.2,
-      image: "https://picsum.photos/200?random=1"
+      price: 19.99,
+      image: "https://picsum.photos/300?random=1"
     },
     {
       title: "Wireless Earbuds",
@@ -41,7 +42,8 @@ const productCardsArray = [
         }
       ],
       score: 8.8,
-      image: "https://picsum.photos/200?random=2"
+      price: 79.99,
+      image: "https://picsum.photos/300?random=2"
     },
     {
       title: "Smart Fitness Watch",
@@ -63,7 +65,8 @@ const productCardsArray = [
         }
       ],
       score: 8.9,
-      image: "https://picsum.photos/200?random=3"
+      price: 129.99,
+      image: "https://picsum.photos/300?random=3"
     },
     
   ];
