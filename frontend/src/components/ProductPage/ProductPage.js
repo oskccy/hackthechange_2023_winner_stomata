@@ -14,7 +14,8 @@ import { useEffect } from "react";
 const ProductPage = () => {
   const location = useLocation();
   const { product } = location.state || { imageUrl: 'default_image_url', title: 'Default Title', evaluation: 'Default Evaluation', alternatives: 'Default Alternatives'};
-  const [productCardsArray, setProductCardsArray] = useState(product.alternatives);
+  // take the top 3 alternatives
+  const [productCardsArray, setProductCardsArray] = useState(product.alternatives.slice(0, 3));
   // console.log(product.evaluation);
   console.log(product.alternatives);
 
@@ -61,7 +62,7 @@ const ProductPage = () => {
 
             <h2 className={styles.title}>Recommended Products</h2>
             <div className={styles.scrollcontainer}>
-              {productCardsArray.slice(0, 3).map((product, id) => (
+              {productCardsArray.map((product, id) => (
                 <Product product={product} key={id} />
               ))}
             </div>
