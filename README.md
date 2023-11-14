@@ -1,3 +1,6 @@
+# Stomata
+By: Oscar Sharaz Spencer, Andy Zhou, Nate Wu, Max Zabarka & Mark Havkin
+
 ## Inspiration
 In our world most large companies do not focus on sustainability. Unsustainable companies like Coca Cola, Nestle, and Starbucks produce billions of tons of waste per year, ultimately destroying the fabric of our world. The best way to leverage technology to solve this problem is educating the root supporters of these multi-national monopolies: consumers, and supporting smaller sustainable alternatives.
 
